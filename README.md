@@ -35,21 +35,7 @@ build-ipa.sh                  本地/云端编译未签名 IPA 的脚本
 .github/workflows/build-ipa.yml   GitHub Actions 云端编译工作流
 ```
 
-## 办法一：在 Mac 上本地编译 IPA
 
-需要一台 Mac + Xcode 16（iOS 17 SDK），不需要开发者账号、不需要证书：
-
-```bash
-./build-ipa.sh
-```
-
-产物在 `./build/PodsStats.ipa`。也可以在 Xcode 里打开 `PodsStats.xcodeproj`，选真机或 Generic iOS Device，Product → Build（签名已在工程里关掉：Manual、无 Team、`CODE_SIGNING_ALLOWED=NO`）。
-
-## 办法二：GitHub Actions 云端编译（不用 Mac）
-
-1. 在 GitHub 新建一个仓库（公开或私有都行），把本目录所有文件推上去（`main` 分支）。
-2. 打开仓库页面 → Actions → 找到 `Build unsigned IPA` → Run workflow（或直接推一次代码自动触发）。
-3. 等工作流跑完（约 3–8 分钟），在该次运行页面底部下载 `PodsStats-unsigned-ipa`（里面是 `PodsStats.ipa`）。
 
 ## 安装到 iPhone（AltStore 侧载，Windows 电脑）
 
