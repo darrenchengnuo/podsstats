@@ -43,8 +43,8 @@ PodsStats/
 build-ipa.sh                  本地/云端编译未签名 IPA 的脚本
 .github/workflows/build-ipa.yml   GitHub Actions 云端编译工作流
 ```
-
-
+下载IPA文件
+https://github.com/darrenchengnuo/podsstats/releases
 
 ## 安装到 iPhone（AltStore 侧载，Windows 电脑）
 
