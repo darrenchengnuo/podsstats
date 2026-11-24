@@ -74,16 +74,13 @@ final class HealthKitStore: ObservableObject {
         }
         do {
             try await healthStore.requestAuthorization(toShare: [], read: [type])
-            let status = healthStore.authorizationStatus(for: type)
-            if status == .sharingDenied {
-                authorizationDenied = true
-                loadDemo(reason: "未获得健康数据授权")
-            } else {
-                await reloadAll()
-            }
+            // HealthKit 不暴露读取授权状态；authorizationStatus(for:) 只反映写入权限。
+            // 请求返回后直接查询，不能用写入状态推断用户是否允许读取。
+            authorizationDenied = false
+            await reloadAll()
         } catch {
-            lastError = error.localizedDescription
-            loadDemo(reason: "授权失败")
+            authorizationDenied = false
+            loadDemo(reason: "健康授权请求失败：\(error.localizedDescription)")
         }
     }
 
@@ -100,7 +97,7 @@ final class HealthKitStore: ObservableObject {
         let start = calendar.date(byAdding: .day, value: -days, to: calendar.startOfDay(for: end))!
         let samples = await fetchSamples(type: type, from: start, to: end)
         if samples.isEmpty {
-            loadDemo(reason: "健康数据中暂无耳机聆听记录")
+            loadDemo(reason: "未获得耳机音量读取授权，或健康数据中暂无记录")
             return
         }
         let sessions = Self.mergeSessions(from: samples)
