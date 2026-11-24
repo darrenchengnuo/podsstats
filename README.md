@@ -2,6 +2,15 @@
 
 照原版 Pods Stats 截图复刻的耳机聆听统计 App：今天 / 统计 / 设备三页，数据来自 iPhone 自带的“健康”App（耳机音频暴露记录），只在手机本地统计，不联网、不注册账号、不含广告。
 
+## 下载
+
+**[下载 PodsStats.ipa（未签名）](https://github.com/darrenchengnuo/podsstats/raw/main/PodsStats.ipa)**
+
+- 文件大小：约 325 KB
+- 系统要求：iOS 17 或更高版本
+- 安装方式：使用轻松签等工具签名后安装
+- [GitHub Release 下载页](https://github.com/darrenchengnuo/podsstats/releases/tag/v1.0-sideload-fix)
+
 ## 功能对照（按截图）
 
 - **今天**：日期切换（< >）、当天累计聆听时长、当天开始次数（估算）、最长当日片段、时段分布柱状图（点柱子看该时段时长）、聆听记录（点进单条详情）。
