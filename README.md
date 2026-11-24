@@ -8,7 +8,7 @@
 
 - 文件大小：约 325 KB
 - 系统要求：iOS 17 或更高版本
-- 安装方式：使用轻松签等工具签名后安装
+- 安装方式：使用自签工具签名后安装
 - [GitHub Release 下载页](https://github.com/darrenchengnuo/podsstats/releases/tag/v1.0-sideload-fix)
 
 ## 功能对照（按截图）
